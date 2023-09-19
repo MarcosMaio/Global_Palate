@@ -1,0 +1,117 @@
+@import url('../../../styles/variables.css');
+
+
+.Nav_Bar_Container_PopUp {
+  width: 100%;
+  height: auto;
+}
+
+.Nav_Bar_Modal {
+    background-color: var(--black);
+    z-Index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    border-radius: 0; 
+    box-shadow: none;
+    animation: SlideAnimationNavBar 1.5s ease forwards;
+    display: flex;
+    justify-content: center;
+    transform: translateX(-100%); 
+}
+
+.closing {
+    animation: SlideAnimationNavBarClose 1.5s ease forwards;
+}
+
+.Nav_Bar_Close_Button {
+    position: absolute;
+    right: 15px;
+    font-size: 1.5em;
+    color: var(--variation-color-white);
+}
+
+.Nav_Bar_Logo_Container {
+  margin-top: var(--item-space-1);
+}
+
+.Nav_Bar_Logo {
+    width: 400px;
+    height: auto;
+    margin-bottom: var(--item-space-5);
+}
+
+.Nav_Bar_Border_Separation {
+    border-bottom: 1px solid var(--variation-color-white);
+    position: absolute;
+    opacity: 0.2;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+}
+
+.Nav_Bar_Navigation {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.Nav_Bar_Navigation ul {
+}
+
+.Nav_Bar_Navigation li {
+  padding: var(--item-space-5);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: var(--fontSize-body-2);
+}
+
+.Nav_Bar_Restaurant_Information {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: var(--item-space-7);
+  padding: 0 50px;
+}
+
+.Nav_Bar_Restaurant_Information h2 {
+  font-size: var(--fontSize-title-2);
+  color: var(--primary-color);
+  font-weight: var(--weight-medium);
+  font-family: var(--font-title);
+  margin-bottom: var(--item-space-2);
+} 
+
+.Nav_Bar_Restaurant_Information p {
+  color: var(--variation-color-white);
+  font-size: var(--fontSize-body-2);
+  margin: var(--item-space-2);
+}
+
+@keyframes SlideAnimationNavBar {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0); /* Posição final para preencher a tela */
+    }
+  }
+
+@keyframes SlideAnimationNavBarClose {
+    0% {
+        opacity: 0;
+        transform: translateX(0);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(-150%); /* Posição final para preencher a tela */
+      }
+}
+

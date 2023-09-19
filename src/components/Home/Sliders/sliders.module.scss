@@ -1,0 +1,155 @@
+@import url('../../../styles/variables.css');
+
+.division__content {
+    position: relative;
+
+    .slider__image {
+      filter: brightness(0.4);
+      width: 100%;
+      height: 700px;
+      object-fit: cover;
+      animation: smoothScale 11s linear forwards;
+      z-index: -1;
+    }
+
+    .overlayContent {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .content {
+        text-align: center;
+        padding: 10px;
+
+        &__title {
+          opacity: 0;
+          margin: 0;
+          font-size: var(--fontSize-title-3);
+          pointer-events: none;
+          color: var(--primary-color);
+          font-family: var(--font-title);
+          font-weight: var(--weight-bold);
+          animation: slideAnimation 1s ease forwards;
+          animation-delay: 1000ms;
+        }
+
+        &__subtitle {
+          opacity: 0;
+          font-size: var(--fontSize-subtitle-1); 
+          text-transform: uppercase; 
+          line-height: var(--lineHeight-3);
+          word-spacing: 0.2em; 
+          letter-spacing: var(--letterSpacing-1);
+          display: block;
+          pointer-events: none;
+          color: var(--variation-color-white);
+          animation: slideAnimation 1s ease forwards;
+          animation-delay: 500ms;
+        }
+
+        &__decoration {
+          opacity: 0;
+          width: 200px;
+          height: auto;
+          margin-bottom: var(--item-space-3);
+          animation: slideAnimation 1s ease forwards;
+          animation-delay: 750ms;
+        }
+
+
+        &__paragraph {
+          opacity: 0;
+          font-size: var(--fontSize-body-1); 
+          letter-spacing: var(--letterSpacing-1);
+          color: var(--variation-color-white);
+          animation: slideAnimation 1s ease forwards;
+          animation-delay: 1.5s;
+        }
+
+        &__button{
+          opacity: 0;
+          margin-top: 1.5em;
+          padding: 18px 45px;
+          letter-spacing: var(--letterSpacing-1);
+          word-spacing: 0.1em; 
+          text-transform: uppercase;
+          font-size: var(--fontSize-body-2);
+          color: var(--c);
+          border: none;
+          cursor: pointer;
+          --c: hsl(38, 53%, 60%);
+          box-shadow: 0 0 0 .1em inset var(--c); 
+          --_g: linear-gradient(var(--c) 0 0) no-repeat;
+          background: 
+            var(--_g) calc(var(--_p,0%) - 100%) 0%,
+            var(--_g) calc(200% - var(--_p,0%)) 0%,
+            var(--_g) calc(var(--_p,0%) - 100%) 100%,
+            var(--_g) calc(200% - var(--_p,0%)) 100%;
+          background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+          outline-offset: .1em;
+          transition: background-size .4s, background-position 0s .4s;
+          animation: slideAnimation 1s ease forwards;
+          animation-delay: 2s;
+          
+
+            &:hover {
+              --_p: 100%;
+              transition: background-position .4s, background-size 0s;
+              color: var(--variation-color-white);
+            }
+
+            &:active {
+              box-shadow: 0 0 9e9q inset #0009; 
+              background-color: var(--c);
+              color: var(--variation-color-white);
+            }
+          }
+        }
+      }
+    }
+
+  .fade {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .fade_active {
+    opacity: 1;
+  }
+
+@keyframes smoothScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes slideAnimation {
+  0% {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@media (min-width: 480px) {
+
+    .division__content {
+        
+    .slider__image {
+        width: 100%;
+        height: auto;
+        max-height: 800px;
+    }
+    }
+}
